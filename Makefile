@@ -8,7 +8,7 @@ export ACCEPT_EULA=Y
 
 .PHONY: test
 
-all: brew bash git npm ruby packages link
+all: brew git npm ruby packages link
 
 packages: brew-packages cask-apps node-packages
 
@@ -27,13 +27,6 @@ unlink: stow-$(OS)
 
 brew:
 	is-executable brew || sudo curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh | bash
-
-bash: BASH=/usr/local/bin/bash
-bash: SHELLS=/private/etc/shells
-bash: brew
-	brew install bash bash-completion@2 pcre && \
-	sudo append $(BASH) $(SHELLS) && \
-	chsh -s $(BASH); \
 
 git: brew
 	brew install git git-extras
