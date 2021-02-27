@@ -241,6 +241,8 @@ defaults write com.apple.dock wvous-br-corner -int 0
 # Don't show recently used applications in the Dock
 defaults write com.Apple.Dock show-recents -bool false
 
+defaults write com.apple.dock tilesize -int 28
+
 ###############################################################################
 # Mail                                                                        #
 ###############################################################################
