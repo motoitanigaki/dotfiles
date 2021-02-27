@@ -12,14 +12,14 @@ all: brew git npm ruby packages link
 
 packages: brew-packages cask-apps node-packages
 
-link: stow-$(OS)
+link: stow-macos
 	for FILE in $$(\ls -A runcom); do if [ -f $(HOME)/$$FILE -a ! -h $(HOME)/$$FILE ]; then \
 		mv -v $(HOME)/$$FILE{,.bak}; fi; done
 	mkdir -p $(XDG_CONFIG_HOME)
 	stow -t $(HOME) runcom
 	stow -t $(XDG_CONFIG_HOME) config
 
-unlink: stow-$(OS)
+unlink: stow-macos
 	stow --delete -t $(HOME) runcom
 	stow --delete -t $(XDG_CONFIG_HOME) config
 	for FILE in $$(\ls -A runcom); do if [ -f $(HOME)/$$FILE.bak ]; then \
