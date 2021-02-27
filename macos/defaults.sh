@@ -129,6 +129,9 @@ defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeF
 # Increase sound quality for Bluetooth headphones/headsets
 defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
 
+# Faster trackpad speed
+defaults write -g com.apple.trackpad.scaling -int 3
+
 ###############################################################################
 # Screen                                                                      #
 ###############################################################################
