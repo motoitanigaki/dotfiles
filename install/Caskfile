@@ -20,6 +20,7 @@ cask "visual-studio-code"
 cask "docker"
 cask "clipy"
 cask "rectangle"
+cask "skitch"
 
 # Quick Look Plugins (https://github.com/sindresorhus/quick-look-plugins)
 cask "qlcolorcode"
