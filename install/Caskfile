@@ -21,6 +21,9 @@ cask "docker"
 cask "clipy"
 cask "rectangle"
 cask "skitch"
+cask "google-japanese-ime"
+cask "google-drive"
+cask "ukelele" # disable special character when alt pressed (cmd + ctrl)
 
 # Quick Look Plugins (https://github.com/sindresorhus/quick-look-plugins)
 cask "qlcolorcode"
