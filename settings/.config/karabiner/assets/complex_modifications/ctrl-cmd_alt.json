@@ -1,0 +1,22 @@
+{
+  "title": "My own rules",
+  "rules": [
+    {
+      "description": "'control+command' -> 'alt'",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "left_command",
+            "modifiers": { "mandatory": ["left_control"] }
+          },
+          "to": [
+            {
+              "key_code": "left_option"
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    }
+  ]
+}
