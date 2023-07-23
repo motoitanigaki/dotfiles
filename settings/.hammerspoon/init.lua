@@ -1,31 +1,31 @@
+-- show network name in menu bar
 wifiWatcher = nil
-http_async_get = hs.http.asyncGet
-
-function getPublicIP(callback)
-    local url = "https://api.ipify.org?format=json"
-    http_async_get(url, nil, function(status, body, headers)
-        if status < 0 then
-            hs.notify.show("Error", "Unable to fetch public IP", "")
-            return
-        end
-
-        local result = hs.json.decode(body)
-        callback(result.ip)
-    end)
-end
-
 function ssidChanged()
     local wifiName = hs.wifi.currentNetwork()
     if wifiName then
-        getPublicIP(function(ip)
-            wifiMenu:setTitle(wifiName .. " " .. ip)
-        end)
+        wifiMenu:setTitle(wifiName)
     else
-        wifiMenu:setTitle("Wifi OFF")
+        wifiMenu:setTitle("No Wi-Fi")
     end
 end
 
-wifiMenu = hs.menubar.newWithPriority(2147483645)
+wifiMenu = hs.menubar.new()
 ssidChanged()
-
 wifiWatcher = hs.wifi.watcher.new(ssidChanged):start()
+
+-- hotkeys
+hs.hotkey.bind({"ctrl"}, "T", function()
+    hs.application.launchOrFocus("Terminal")
+end)
+
+hs.hotkey.bind({"alt"}, "C", function()
+    hs.application.launchOrFocus("Brave Browser")
+end)
+
+hs.hotkey.bind({"alt"}, "V", function()
+    hs.application.launchOrFocus("Visual Studio Code")
+end)
+
+hs.hotkey.bind({"alt"}, "S", function()
+    hs.application.launchOrFocus("Slack")
+end)
