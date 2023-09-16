@@ -10,6 +10,7 @@ export PKG_CONFIG_PATH="/usr/local/opt/zlib/lib/pkgconfig"
 # brew extra path
 set PATH /opt/homebrew/opt/openvpn/sbin/ $PATH
 fish_add_path /opt/homebrew/opt/node@14/bin
+fish_add_path /opt/homebrew/bin
 
 # nvm
 function __check_rvm --on-variable PWD --description 'Do nvm stuff'

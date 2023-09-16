@@ -635,6 +635,12 @@
         "options": {
           "full_name": "app-cleaner"
         }
+      },
+      "google-chrome": {
+        "version": "115.0.5790.102",
+        "options": {
+          "full_name": "google-chrome"
+        }
       }
     }
   },
