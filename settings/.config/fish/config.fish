@@ -78,3 +78,42 @@ function fish_user_key_bindings
   bind \cz 'peco_z'
   bind \cc 'peco_z_code'
 end
+
+
+status --is-interactive; and source (pyenv init - | psub)
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/motoi/Documents/gcp/google-cloud-sdk/path.fish.inc' ]; . '/Users/motoi/Documents/gcp/google-cloud-sdk/path.fish.inc'; end
+
+# bun
+set --export BUN_INSTALL "$HOME/.bun"
+set --export PATH $BUN_INSTALL/bin $PATH
+
+# pnpm
+set -gx PNPM_HOME "/Users/motoi/Library/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+  set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+if test -f /Users/motoi/miniconda3/bin/conda
+    eval /Users/motoi/miniconda3/bin/conda "shell.fish" "hook" $argv | source
+else
+    if test -f "/Users/motoi/miniconda3/etc/fish/conf.d/conda.fish"
+        . "/Users/motoi/miniconda3/etc/fish/conf.d/conda.fish"
+    else
+        set -x PATH "/Users/motoi/miniconda3/bin" $PATH
+    end
+end
+# <<< conda initialize <<<
+
+
+# >>> mamba initialize >>>
+# !! Contents within this block are managed by 'mamba shell init' !!
+set -gx MAMBA_EXE "/Users/motoi/miniconda3/bin/mamba"
+set -gx MAMBA_ROOT_PREFIX "/Users/motoi/miniconda3"
+$MAMBA_EXE shell hook --shell fish --root-prefix $MAMBA_ROOT_PREFIX | source
+# <<< mamba initialize <<<
+alias claude="/Users/motoi/.claude/local/claude"
