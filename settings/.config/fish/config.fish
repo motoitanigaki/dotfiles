@@ -117,3 +117,16 @@ set -gx MAMBA_ROOT_PREFIX "/Users/motoi/miniconda3"
 $MAMBA_EXE shell hook --shell fish --root-prefix $MAMBA_ROOT_PREFIX | source
 # <<< mamba initialize <<<
 alias claude="/Users/motoi/.claude/local/claude"
+
+# yazi wrapper - exit to cwd
+function y
+    set tmp (mktemp -t "yazi-cwd.XXXXXX")
+    command yazi $argv --cwd-file="$tmp"
+    if read -z cwd < "$tmp"; and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
+        builtin cd -- "$cwd"
+    end
+    rm -f -- "$tmp"
+end
+# Added by Antigravity
+fish_add_path /Users/motoi/.antigravity/antigravity/bin
+
