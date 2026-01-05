@@ -564,12 +564,6 @@
           "full_name": "cheatsheet"
         }
       },
-      "clipy": {
-        "version": "1.2.1",
-        "options": {
-          "full_name": "clipy"
-        }
-      },
       "google-drive": {
         "version": "78.0.1",
         "options": {
