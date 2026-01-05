@@ -9,4 +9,5 @@ defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool
 defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 defaults write com.apple.dock autohide -bool true
 defaults write com.apple.dock tilesize -int 28
+defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 64 "<dict><key>enabled</key><false/></dict>"
 killall Dock
